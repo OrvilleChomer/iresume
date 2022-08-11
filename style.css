@@ -1,0 +1,597 @@
+/******************************************************************************
+START Glitch hello-app default styles
+
+The styles in this section do some minimal CSS resets, set default fonts and 
+colors, and handle the layout for our footer and "Remix on Glitch" button. If
+you're new to CSS they may seem a little complicated, but you can scroll down
+to this section's matching END comment to see page-specific styles.
+******************************************************************************/
+
+
+/* 
+  The style rules specify elements by type and by attributes such as class and ID
+  Each section indicates an element or elements, then lists the style properties to apply
+  See if you can cross-reference the rules in this file with the elements in index.html
+*/
+
+/* Our default values set as CSS variables */
+:root {
+    --art-board-width:7200px;
+    --art-board-height:5400px;
+    --collapse-button-height:40px;
+    --color-bg: #69F7BE;
+    --color-text-main: #000000;
+    --color-primary: #FFFF00;
+    --default-section-width:600px;
+    --header-color:#cc5200;
+    --link-color:darkblue;
+    --section-font: Optima;
+    --time-line-cntr-background-color:white;
+    --time-line-cntr-height:200px;
+    --toc-font:tahoma;
+    --toc-width:260px;    
+    --toc-line-height:40px;
+    --toolbar-height:700px;
+    --toolbar-width:200px;    
+    
+    --tools-height: calc(var(--toolbar-height) - var(--collapse-button-height));
+    --video-lst-itm-height:55px;
+    --video-player-cntr-top:40px;
+    --video-player-popup-background-color:#003300;
+    --video-player-popup-height:370px;
+    --video-player-popup-width:570px;
+    --video-player-popup-z-index: 210;
+  }
+  
+  /* Basic page style resets */
+  * {
+    box-sizing: border-box;
+  }
+  [hidden] {
+    display: none !important;
+  }
+  
+  /* Import fonts */
+  
+  
+  /* bbb */
+  body {
+    padding:0;
+    margin:0;
+    overflow:hidden;
+  }
+  
+  a {
+    color:darkblue;  
+    font-weight: bold;
+  }
+
+  a:visited {
+    color:darkblue;  
+  }
+
+
+  h3 {
+    color:var(--header-color);
+
+  }
+  .inputArea {
+    width:var(--toolbar-width);
+    height:40px;
+    line-height:40px;
+    padding:0;
+    margin:0;
+    overflow:hidden;
+  }
+
+  @keyframes slide-timeline-up_ani {
+    to {
+      transform:translate(0px,0px);
+    }
+  }
+
+  #timelineCntr {
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:var(--time-line-cntr-height);
+    background-color:var(--time-line-cntr-background-color);
+    box-shadow: 0px -3px 18px #d98cb3;
+    overflow:hidden;
+    transform:translate(0px,var(--time-line-cntr-height));
+    animation-name:slide-timeline-up_ani;
+    animation-duration:1s;
+    animation-delay:1s;
+    animation-fill-mode:both;
+  }
+
+  .timelineTitle {
+    font-family: tahoma;
+    font-weight:bold;
+    font-size:10pt;
+    z-index:20;
+    position:absolute;
+    top:0;
+    left:0;
+    padding-left:3px;
+    padding-top:3px;
+    background-color:red;
+    color:white;
+    width:100px;
+    height:24px;
+    text-align:center;
+    border-bottom-right-radius:15px;
+  }
+
+  #timelineDiagram {
+    position:absolute;
+    left:0;
+    top:0;
+    padding:0;
+    margin:0;
+    background-color:papayawhip;
+  }
+
+  #toc {
+    position:absolute;
+    overflow-y:auto;
+    overflow-x:hidden;
+    margin:0;
+    left:0;
+    top:0;
+    bottom:0;
+    width:var(--toc-width);
+    border-right:solid black .5px;
+    background-color:#1f2e2e;
+  }
+  
+  #toc > ul > li {
+    color:#1f2e2e;
+    display:inline-block;
+    width:var(--toc-width);
+    height:var(--toc-line-height);
+    line-height:var(--toc-line-height);
+    font-family: var(--toc-font);
+    padding-left:10px;
+    border-top:solid #e1eaea .5px;
+    border-bottom:solid #1f2e2e .5px;
+    background-color: #86acac;
+    cursor:pointer;
+    display:inline-block;
+    transition-property:  padding-right,background-color,color;
+    transition-duration: 1s;
+
+  }
+  
+  #toc > ul > li:hover {
+    background-color:#005580;
+    color:white;
+    
+  }
+  
+  #pageHeading {
+    position:absolute;
+    left:var(--toc-width);
+    top:0;
+    right:0;
+    font-size:26pt;
+  }
+  
+  #viewPort {
+    position:absolute;
+    left:var(--toc-width);
+    right:0;
+    top:50px;
+    bottom:0;
+    overflow:hidden;
+    background-color:black;
+    transition-property:  background-color;
+    transition-duration: 1s;
+  }
+  
+  #tsOriginXHair {
+    position:absolute;
+    transform:translate(-20px,-20px);
+    pointer-events: none;
+  }
+
+  /* no pointer events */
+  .npe {
+    pointer-events: none;
+  }
+
+  #artBoard {
+    position:absolute;
+    top:0;
+    left:0;
+    width:var(--art-board-width);
+    height:var(--art-board-height);    
+    transform-origin:0px 0px;
+    transition-property: transform;
+  }
+  
+
+  .crosshair {
+    cursor:crosshair;
+  }
+
+  
+  /*  For zooming out while editing so user can see the entire artboard at one time... and where everything
+      is on it.
+  */
+  #artBoard.zoomOut {
+    transform: scale(.2) translate(0px, 0px);
+  }
+  
+  /* Below are animation duration classes */
+  .dur0p25 {
+    transition-duration: .25s;
+  }
+
+  .dur0p5 {
+    transition-duration: .5s;
+  }
+
+  .dur1 {
+    transition-duration: 1s;
+  }
+
+  .dur1p5 {
+    transition-duration: 1.5s;
+  }
+
+  section {
+    position:absolute;
+    margin:0;
+    width:var(--default-section-width);
+    font-family: var(--section-font);
+    display:block;
+  }
+  
+  section.about {
+    left:1300px;
+    top:500px;
+  }
+
+  section.profile {
+    left:990px;
+    top:2000px;
+  }
+  
+  .skills {
+    left:4800px;
+    top:300px;
+    height:480px;
+    
+  }
+  
+  section.workExperience {
+    left:2600px;
+    top:3600px;
+  }
+  
+  
+  
+  .bottomArea {
+    position:absolute;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    height:35px;
+    line-height: 35px;
+    margin:0;
+    padding:0;
+  }
+
+  .prevSection {
+    position:absolute;
+    left:5px;
+    text-decoration:underline;
+    font-weight:bold;
+    cursor:pointer;
+    color:var(--link-color); 
+  }
+  
+  .nextSection {
+    position:absolute;
+    right:5px;
+    text-decoration:underline;
+    font-weight:bold;
+    cursor:pointer;
+    color:var(--link-color);  
+  }
+  
+  
+  
+  ul {
+    position:absolute;
+    list-style-type: none;
+    margin:0;
+    padding:0;
+  }
+  
+  /* 
+     positioning lists in two columns (for skills) 
+     Probably a slicker way of doing this... but hey!
+   */
+  ul.lstCol1 {
+    padding-left:10px;
+    line-height: 20pt;
+  }
+
+  ul.lstCol2 {
+    left:300px;
+    line-height: 20pt;
+  }
+
+  
+
+  .videoLstItm {
+
+    height: var(--video-lst-itm-height);
+    line-height: var(--video-lst-itm-height);
+  }
+
+  .videoLstItmCntr {
+    position:relative;
+    left:0px;
+    top:0px;
+    height: var(--video-lst-itm-height);
+    width:620px;
+    margin:0;
+    padding:0;
+  }
+
+  .videoInfo {
+    position:absolute;
+    top:9px;
+    left:70px;
+    margin:0;
+    padding:0;
+    line-height:14pt;
+  }
+
+  .videoThumbnail {
+    cursor:pointer;
+    position:absolute;
+    left:2px;
+    top:2px;
+    transition-property: transform;
+    transition-duration: .25s;
+  }
+
+  .videoThumbnail:hover {
+    transform: scale(1.5);
+  }
+
+  #tint {
+    position: fixed;
+    z-index:200;
+    overflow:hidden;
+    background-color:black;
+    opacity:.2;
+    padding:0;
+    margin:0;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    display:none;
+  }
+
+  .vidPlayerPopup {
+    position: absolute;
+    z-index: var(--video-player-popup-z-index);
+    width: var(--video-player-popup-width);
+    height:var(--video-player-popup-height);
+    background-color:var(--video-player-popup-background-color);
+    color:white;
+    border-radius:5px;
+  }
+
+
+  .vidPlayerPopupStartPos {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  .vidPlayerCntr {
+    position: absolute;
+    left:5px;
+    top:var(--video-player-cntr-top);
+    overflow: hidden;
+    margin:0;
+    padding:0;
+  }
+
+  .videoPlayerCover {
+    position: absolute;
+    left:5px;
+    top:var(--video-player-cntr-top);
+    overflow: hidden;
+    margin:0;
+    padding:0;
+    background:white;
+    opacity:0;
+    cursor:pointer;
+  }
+
+  .videoPlayerMoviePoster {
+    position: absolute;
+    left:5px;
+    top:var(--video-player-cntr-top);
+    /*  css width and height are set in the JavaScript */
+    overflow: hidden;
+    margin:0;
+    padding:0;
+    background:black;
+    z-index:215;
+    pointer-events: none; /*  videoPlayerCover will capture all click events! */
+  }
+
+  .videoPlayerVideoTitle {
+    left:0;
+    top:var(--video-player-cntr-top);
+    /*  css width and height and line-height are set in the JavaScript */
+    text-align:center;
+    color: white;
+    pointer-events: none; /*  videoPlayerCover will capture all click events! */
+    font-family: "Bookman Old Style";
+  }
+
+  .videoPlayerPlayPause {
+    left:0;
+    top:var(--video-player-cntr-top);
+    /*  css width and height are set in the JavaScript */
+    text-align:center;
+    color: white;
+    pointer-events: none; /*  videoPlayerCover will capture all click events! */
+  }
+
+  #toolbar {
+    position:absolute;
+    background-color:silver;
+    right:3px;
+    bottom:3px;
+    width:var(--toolbar-width);
+    height:var(--toolbar-height);
+    border:solid gray 1px;
+    border-radius: 6px;
+    z-index:100;
+    padding:4px;
+    overflow:hidden;
+    transition-property: width;
+  }
+
+  #toolbar.collapsed {
+    width:var(--collapse-button-height);
+  }
+  
+  #collapseBtn {
+    position:absolute;
+    height:var(--collapse-button-height);
+    line-height: var(--collapse-button-height);
+    font-weight:bold;
+    width:var(--collapse-button-height);
+    top:0;
+    right:0;
+    overflow:hidden;
+    cursor:pointer;
+  }
+
+  #tools {
+    width:var(--toolbar-width);
+    height:var(--tools-height);
+    position:absolute;
+    left:0;
+    top:var(--collapse-button-height);
+    background-color:pink;
+  }
+
+  #tools.collapsed {
+    display:none;
+  }
+
+  #mousePos {
+    width:100%;
+    text-align:center;
+  }
+  #toggleFullViewBtn {
+    background-color:lightgreen;
+    width:100%;
+  }
+
+  #transformMode {
+    width:100%;
+  }
+
+  .toolbarLbl {
+    width:100%;
+    text-align:center;
+    color:darkblue;
+    margin-top:12px;
+    font-family:tahoma;
+  }
+
+  .inpNum {
+    width:60px;
+  }
+
+  .uom {
+    padding:0;
+    margin:0;
+    color:blue;
+  }
+
+  /* Work Experience Styles: */
+
+  .jobInfo {    
+    border:dotted orange .5px;
+    width:600px;
+    min-height:50px;
+    background:yellow;
+  }
+
+  .jobTitle {    
+    color:purple;
+    font-weight:bold;
+  }
+
+  .jobDates {
+    position:relative;
+    right:0;
+    color:green;
+
+  }
+
+  .companyAndLocation {    
+    color:orange;
+    width:600px;
+  }
+
+  .jobDetails {
+    width:600px;
+  }
+
+  .jobInfoLiBA {
+    width:600px;
+  }
+
+  /* Misc. Utility Classes */
+  .q {
+    font-family: "Bookman Old Style"; 
+  }
+
+  .dropLetter {
+    color: var(--header-color);
+    float: left;
+    font-family: "Bookman Old Style";
+    font-weight:bold;
+    font-size: 38px;
+    line-height: 41px;
+    padding-top: 0px;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-right:6px;
+    border:solid silver .5px;
+    border-radius:4px;
+    box-shadow: 3px 3px 5px black;
+  }
+
+  .wip {
+    position:fixed;
+    top:200px;
+    left:0;
+    color:red;
+    font-family: "Bookman Old Style";
+    font-weight:bold;
+    font-size: 120pt;
+    opacity:.2;
+    pointer-events: none;
+    text-shadow: 3px 3px 5px black;
+    /* transform-origin: bottom left; */
+    transform:rotate(-20deg);
+    text-align: center;
+    z-index:300;
+    line-height:100%;
+  }
