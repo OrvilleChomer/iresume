@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="icon" href="https://glitch.com/favicon.ico" /> -->
+
+    
+
+    <title>Interactive Résumé - Orville Chomer</title>
+
+    <!-- Meta tags for SEO and social sharing -->
+    <!-- <link rel="canonical" href="https://glitch-hello-website.glitch.me/" /> -->
+    <meta
+      name="description"
+      content="A fun and interactive way to explore Orville Chomer’s Résumé."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Orville Chomer’s Interactive Résumé" />
+    <meta property="og:type" content="article" />
+    <!-- <meta property="og:url" content="https://glitch-hello-website.glitch.me/" /> -->
+    <meta
+      property="og:description"
+      content="A fun and interactive way to explore Orville Chomer’s Résumé."
+    />
+    <!-- <meta
+      property="og:image"
+      content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147"
+    /> -->
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="./style.css?r=0" />
+
+    <link rel="shortcut icon" type="image/png" href="./imgs/icon180x180.png"/>
+    <link rel="apple-touch-icon" href="./imgs/icon180x180.png">  
+    <link rel="icon" type="image/x-icon" href="./imgs/icon180x180.png" />
+
+    <!-- Import the webpage's javascript file -->
+    <script src="./script.js?r=0" defer></script>
+  </head>
+  <body>
+    <div id="toc">
+      <ul>
+        <li class="navClick" data-nav-id="profile">PROFILE</li>
+        <li class="navClick" data-nav-id="skills">SKILLS &amp; QUALIFICATIONS</li>
+        <li class="navClick" data-nav-id="work_experience">WORK EXPERIENCE</li>
+        <li class="navClick" data-nav-id="demos">DEMOS</li>
+        <li class="navClick" data-nav-id="training">TRAINING / CERTIFICATIONS</li>
+        <li class="navClick" data-nav-id="awards">AWARDS</li>
+      </ul>
+    </div><!-- toc -->
+    
+    <div id="pageHeading"><span id="myName">Orville Chomer</span>
+      <span class="pageSubHeading">Interactive Résumé</span>
+    </div>
+
+
+    <div id="viewPort">
+     <div id="artBoard" class="dur0p5 crosshair">
+
+        <!-- @@@@@@@@@@@@@@@@@@ transform origin crosshair @@@@@@@@@@@@@@@@@ -->
+        <svg height="41" width="41" id="tsOriginXHair" style="display:none">
+            <line x1="19" y1="0" x2="19" y2="40" style="stroke:yellow;stroke-width:2" />
+            <line x1="20" y1="0" x2="20" y2="40" style="stroke:blue;stroke-width:2" />
+            <line x1="21" y1="0" x2="21" y2="40" style="stroke:yellow;stroke-width:2" />
+            
+            <line x1="0" y1="19" x2="40" y2="19" style="stroke:yellow;stroke-width:2" />
+            <line x1="0" y1="20" x2="40" y2="20" style="stroke:blue;stroke-width:2" />
+            <line x1="0" y1="21" x2="40" y2="21" style="stroke:yellow;stroke-width:2" />
+        </svg>
+        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+        <section class="about">
+          <h3>ABOUT THIS WEB PAGE</h3>
+          <p><span class="dropLetter">I</span> wanted to create a fun and interesting way to showcase my skills 
+          beyond just your average old r<span class="q">é</span>sum<span class="q">é</span>.
+          This page has been specifically designed to be seen on the desktop, and, just maybe, a tablet with a large display.
+          </p>
+          <p>
+            Sure, for the average inquiry, I still have a standard résumé that you can download and review (see below).
+          </p>
+          <ul class="videoLst">
+            <li class="videoLstItm"><div class="videoLstItmCntr"><img 
+              src="./imgs/videoPlayerIcon.png" width="55" align="left" class="videoThumbnail navClick" data-nav-id="vid-about">
+              <p class="videoInfo">Click icon to the left to watch a short video about this page and how to use it.</p></div></li>
+            <li class="videoLstItm"><div class="videoLstItmCntr"><img 
+              src="./imgs/videoPlayerIcon.png" width="55" align="left" class="videoThumbnail navClick" data-nav-id="vid-about">
+              <p class="videoInfo">Click icon to the left to watch a technical indepth video on 
+                how this<br>page was made including what kind of coding techniques were used.</p></div></li>
+          </ul>
+          <br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;
+          <hr>
+          <p>If want to look at the latest copy of my regular ol<span class="q">’</span> &nbsp;&nbsp;
+            <span class="q">“</span>standard<span class="q">”</span> &nbsp;&nbsp;
+            r<span class="q">é</span>sum<span class="q">é</span>,<br>
+            you can download the .DOCX version <a href="http://chomer.com/wp-content/2022/06/OrvilleChomerResume2022-1.docx" target="resume_docx" >here</a>, 
+            and the .PDF version <a href="http://chomer.com/wp-content/2022/06/OrvilleChomerResume2022-1.pdf" target="resume_pdf">here</a>.
+          </p>
+          <hr>
+          <span class="nextSection navClick" data-nav-id="profile">NEXT</span>
+        </section>
+
+       <section class="profile">
+         <h3>
+           PROFILE
+         </h3>
+         <p><i>What I am looking for:</i>  I am looking for a stable, full-time job either working remotely or on-site 
+           in the Chicago metropolitan area. I'm looking for a position that involves some combination of 
+           software design as well as coding at both the client and server level.</p>
+
+         <p><i>What I can provide to your organization:</i> A 20+ year background in software development working with 
+            IT colleagues, business clients, project managers, and end-users on both large and small projects for 
+           small companies as well as large enterprises such as AT&T and IBM. I have a passion to make tools that 
+           empower users, and increase their ability to get stuff done.</p>
+         <br>&nbsp;<br>
+         <div class="bottomArea">
+           <span class="prevSection navClick" data-nav-id="start_waypoint2_about">ABOUT</span>
+           <span class="nextSection navClick" data-nav-id="skills">NEXT</span>
+         </div>
+       </section>
+       
+       <section class="skills">
+         <h3>SKILLS &amp; QUALIFICATIONS</h3>
+         <ul class="lstCol1">
+           <li>AJAX</li>
+           <li>Asynchronous Coding</li>
+           <li>Browser Extensions</li>
+           <li>ColdFusion</li>
+           <li>Database Design</li>
+           <li>Electron.js</li>
+           <li>Express (for Node.js)</li>
+           <li>HTML/CSS</li>
+           <li>IndexedDb</li>
+           <li>Java / JSP</li>
+           <li>Java Struts 2</li>
+           <li>JavaScript (ECMA Script)</li>
+           <li>JQuery</li>
+         </ul>
+         
+         <ul class="lstCol2">           
+           <li>JSON</li>
+           <li>Mobile Web App Development</li>
+           <li>mySQL</li>
+           <li>Node.js</li>
+           <li>Objective C</li>
+           <li>Oracle Database</li>
+           <li>PHP</li>
+           <li>Progressive Web App (PWA)</li>
+           <li>Python Scripting</li>
+           <li>Ruby Scripting</li>
+           <li>SQL Server Database</li>
+           <li>Single Page Application (SPA)</li>
+           <li>Stored Procedures</li>
+           <li>Visual Basic / VBA / VB Script</li>
+         </ul>
+         
+         
+         <div class="bottomArea">
+           <span class="prevSection navClick" data-nav-id="profile">PREVIOUS</span>
+           <span class="nextSection navClick" data-nav-id="work_experience">NEXT</span>
+         </div>
+       </section>
+       
+       <section class="workExperience">
+         <h3>WORK EXPERIENCE</h3>
+         <ul>
+          <li class="jobInfoLi">
+            <span class="jobTitle">Software Engineer</span>
+            <span class="jobDates">Dec 2021 to June 2022</span><br>
+            <span class="companyAndLocation">Collabera Inc. · Full-time, Greater Chicago Area - Remote</span><!-- do a embedded map?? -->
+              
+              
+                <ul class="jobDetails"><!-- beginning of job Details #1 -->
+                  <li>
+                    IBM as a client:
+                    <ul>
+                      <li>Worked on browser extension that collected application meta data and imported it into IBM's
+                      Cloudpak for Data. Part of the work involved working on a Python script to take data that was mapped
+                      by Watson (or manually) and export it into a JSON file which AT&T could import into a meta data
+                      system they had in-house. Python scripts were created/edited and run from inside of Cloudpak for
+                      Data. Work was done for IBM as part of a proposal to AT&T. Some work was done also using Excel
+                      VBA Macros to generate CSV files to import into Cloudpak for Data.</li>
+                    </ul>
+                  </li>
+                </ul><!-- ending of job Details #1-->              
+          </li><!-- jobInfoLi-->
+
+          <li class="jobInfoLi">
+            <span class="jobTitle">System Engineering Professional</span>
+            <span class="jobDates">Nov 2014 to Dec 2017</span><br>
+            <span class="companyAndLocation">IBM, Chicago, IL - Remote</span><!-- do a embedded map?? -->
+
+                <ul><!-- beginning of job Details #2 -->
+                  <li>
+                    Eplurum epsom...
+                  </li>
+                </ul><!-- ending of job Details #2-->              
+          </li><!-- jobInfoLi-->
+
+
+          <li class="jobInfoLi">
+            <span class="jobTitle">Professional Software Developer</span>
+            <span class="jobDates">Nov 1997 - Nov 2014</span><br>
+            <span class="companyAndLocation">AT&T, Chicago, IL - Initially worked On Premises, then Remotely</span><!-- do a embedded map?? -->
+
+                <ul class="jobDetails"><!-- beginning of job Details #3 -->
+                  <li>
+                    Eplurum epsom...
+                  </li>
+                </ul><!-- ending of job Details #3-->              
+          </li><!-- jobInfoLi-->
+
+
+          <li class="jobInfoLi">
+            <span class="jobTitle">Software Developer</span>
+            <span class="jobDates">Mar 1995 - Nov 1997</span><br>
+            <span class="companyAndLocation">Benrus Watch Company, Chicago, IL - On Premises</span><!-- do a embedded map?? -->
+
+                <ul class="jobDetails"><!-- beginning of job Details #4 -->
+                  <li>
+                    Eplurum epsom...
+                  </li>
+                </ul><!-- ending of job Details #4-->              
+          </li><!-- jobInfoLi-->
+
+
+          <li class="jobInfoLi">
+            <span class="jobTitle">Consultant</span>
+            <span class="jobDates">Sep 1994 - Mar 1995</span><br>
+            <span class="companyAndLocation">Computer Horizons, Chicago, IL - On Premises</span><!-- do a embedded map?? -->
+
+                <ul class="jobDetails"><!-- beginning of job Details #5 -->
+                  <li>
+                    Eplurum epsom...
+                  </li>
+                </ul><!-- ending of job Details #5-->              
+          </li><!-- jobInfoLi-->
+
+
+          <li class="jobInfoLi">
+            <span class="jobTitle">Software Developer</span>
+            <span class="jobDates">Mar 1994 - Sep 1994</span><br>
+            <span class="companyAndLocation">Ameritech Library Services (NOTIS Systems), Evanston, IL - On Premises</span><!-- do a embedded map?? -->
+
+                <ul class="jobDetails"><!-- beginning of job Details #6 -->
+                  <li>
+                    Eplurum epsom...
+                  </li>
+                </ul><!-- ending of job Details #6-->              
+          </li><!-- jobInfoLi-->
+
+          <li class="jobInfoLi">
+            <span class="jobTitle">Software Developer</span>
+            <span class="jobDates">Dec 1987 - Sep 1994</span><br>
+            <span class="companyAndLocation">Benrus Watch Company, Chicago, IL - On Premises</span><!-- do a embedded map?? -->
+
+                <ul><!-- beginning of job Details #7 -->
+                  <li>
+                    
+                  </li>
+                </ul><!-- ending of job Details #7-->              
+          </li><!-- jobInfoLi-->
+
+          <li class="jobInfoLiBA"><br>&nbsp;<br>
+           
+              <span class="prevSection navClick" data-nav-id="skills">PREVIOUS</span>
+              <span class="nextSection navClick" data-nav-id="profile">START OVER</span> <!-- for now ... -->
+          </li>
+         </ul>
+         
+         
+       </section>
+
+       <section class="demos">
+       </section>
+
+       <section class="training">
+       </section>
+
+       <section class="awards">
+       </section>
+     </div><!-- artBoard -->
+    </div><!-- viewPort -->
+
+
+
+    <div class="wip">
+      WORK<br>IN<br>PROGRESS
+    </div><!-- wip   (temporary) -->
+
+
+    <div id="timelineCntr">
+      <div class="timelineTitle">TIMELINE:</div>
+      <div id="timelineArtboard">
+        <svg id="timelineDiagram" width="4000" height="200" viewbox="0 0 4000 200"></svg>
+      </div><!-- timelineArtboard -->
+    </div><!-- timelineCntr -->
+
+    <div id="tint"></div>
+
+    <!-- **************************************************************** -->
+    <div id="toolbar" style="display:none;">
+      <button id="collapseBtn">&gt;&gt;</button>
+      <div id="tools">
+        <div id="mousePos">&nbsp;</div>
+        <button id="toggleFullViewBtn">Toggle Full View</button>
+        <div class="toolbarLbl">Press Spacebar for<br>transform snapshot...</div>
+        
+        <select id="transformMode">
+            <option>translate</option>
+            <option>scale</option>
+            <option>rotate</option>
+        </select>
+
+        <button id="resetTransformBtn">Reset Transform</button>
+
+        &nbsp;<br>&nbsp;
+        
+        <div class="inputArea">
+            <input type="number" id="transformInput1" size="4" maxlength="4" value="9999" class="inpNum"> <span id="uom1" class="uom">px</span>
+            &nbsp;&nbsp;
+            <input type="number" id="transformInput2" size="4" maxlength="4" value="9999" class="inpNum"> <span id="uom2" class="uom">px</span>
+        </div><!-- inputArea -->
+        &nbsp;<br>&nbsp;
+        <textarea rows="4" cols="20"></textarea>
+        <div class="toolbarLbl">Press 'Z' to set<br>transform origin...</div>
+      </div><!-- tools -->
+    </div><!-- toolBar -->
+    <style id="dynamicStyles"></style>
+  </body>
+</html>
